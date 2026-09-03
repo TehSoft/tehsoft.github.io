@@ -1,17 +1,74 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-        <link rel="stylesheet" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TehSoft</title>
-    </head>
-    <body>
-        <h1>TehSoft főoldala</h1>
-        <br>
-        <p>Ez a weboldal nincs kész.</p>
-        <a href="/clicker">Próbáld ki a clicker játékunkat is!</a>
-        <br>
-        <a href="https://github.com/tehsoft">Github főoldal</a>
-    </body>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TehSoft</title>
+    <style>
+        /* Az admin üdvözlő üzenet modern, kék stílusa */
+        .admin-status-bar {
+            margin: 20px 0;
+            padding: 12px 20px;
+            background-color: #e6f3ff;
+            border: 1px solid #b3d7ff;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #004085;
+        }
+        .admin-status-bar a {
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .logout-link {
+            color: #dc3545 !important;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🚀 Ez a doboz fog dinamikusan változni a belépési állapottól függően -->
+    <div id="statuszSzekcio"></div>
+
+    <h1>TehSoft főoldala</h1>
+    <br>
+    <p>Ez a weboldal nincs kész.</p>
+    <a href="/clicker">Próbáld ki a clicker játékunkat is!</a>
+    <br>
+    <a href="https://github.com">Github főoldal</a>
+
+    <!-- JavaScript a localStorage ellenőrzéséhez -->
+    <script>
+        window.onload = function() {
+            // Megnézzük, hogy a login oldal elmentett-e nevet a böngészőbe
+            const elmentettNev = localStorage.getItem("bejelentkezettFelhasznalo");
+            const szekcio = document.getElementById("statuszSzekcio");
+
+            if (elmentettNev) {
+                // HA BE VAGY LÉPVE: Megjelenik a kék státuszsáv
+                szekcio.innerHTML = `
+                    <div class="admin-status-bar">
+                        🔒 Belépve mint: <strong>${elmentettNev}</strong>
+                        | <a href="/login/" style="color: #0066cc;">Vezérlőpult</a>
+                        | <a onclick="fooldalKijelentkezes()" class="logout-link">Kijelentkezés</a>
+                    </div>
+                `;
+            } else {
+                // HA NEM VAGY LÉPVE: Csak egy sima, tiszta belépési link jelenik meg
+                szekcio.innerHTML = `
+                    <p style="font-size: 0.9rem;"><a href="/login/" style="color: #666; text-decoration: none;">Admin bejelentkezés</a></p>
+                `;
+            }
+        };
+
+        // Kijelentkezés közvetlenül a főoldalról
+        function fooldalKijelentkezes() {
+            localStorage.removeItem("bejelentkezettFelhasznalo"); // Töröljük a mentést
+            location.reload(); // Újratöltjük az oldalt, hogy eltűnjön a név
+        }
+    </script>
+</body>
 </html>

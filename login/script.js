@@ -24,3 +24,17 @@ function bejelentkezes() {
         alert("Hibás vagy ismeretlen kód!");
     }
 }
+
+window.onload = function() {
+    const elmentettNev = localStorage.getItem("bejelentkezettFelhasznalo");
+    if (elmentettNev) {
+        document.getElementById("loginFormSzekcio").style.display = "none";
+        document.getElementById("adminPanel").style.display = "block";
+        document.getElementById("aktivUser").innerText = elmentettNev;
+    }
+};
+
+function kijelentkezes() {
+    localStorage.removeItem("bejelentkezettFelhasznalo");
+    location.reload();
+}

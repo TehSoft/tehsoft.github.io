@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tehsoft - Bejelentkezés</title>
-    <!-- Külső közös stíluslap beágyazása (visszalépve eggyel a főkönyvtárba) -->
     <link rel="stylesheet" href="../style.css"> 
     <style>
-        /* Alapvető elrendezés a bejelentkező kártyáknak */
         .login-box {
             background: white;
             padding: 30px;
@@ -38,14 +36,12 @@
         .logout-btn { background-color: #dc3545; margin-top: 15px; }
         .logout-btn:hover { background-color: #bd2130; }
         .admin-panel {
-            display: none; /* Alapértelmezetten rejtve van, a JS kapcsolja be */
+            display: none;
             background: #e8f5e9;
         }
     </style>
 </head>
 <body>
-
-    <!-- 1. Bejelentkező ablak (Ez látható először) -->
     <div class="login-box" id="loginFormSzekcio">
         <h2>Rendszer Belépés</h2>
         <p>Kérlek, add meg a hozzáférési kódodat.</p>
@@ -55,18 +51,17 @@
         <button onclick="bejelentkezes()">Belépés</button>
     </div>
 
-    <!-- 2. Admin panel (Csak sikeres azonosítás után ugrik elő) -->
     <div class="login-box admin-panel" id="adminPanel">
         <h2>🔒 Vezérlőpult</h2>
         <p>Sikeres azonosítás! Üdvözlünk a rendszerben: <strong id="aktivUser"></strong></p>
         <p>Itt érhetőek el a pluszfunkciók.</p>
         <br>
         <a href="/" style="color: #0066cc; text-decoration: none; font-weight: bold;">Vissza a főoldalra</a>
-        <br>
+        <br><br>
+        <a href="https://github.com" target="_blank" style="color: #24292e; text-decoration: none; font-weight: bold;">🐱 Megnyitás a GitHubon</a>
+        <br><br>
         <button onclick="kijelentkezes()" class="logout-btn">Kijelentkezés</button>
     </div>
-
-    <!-- A külső JavaScript fájl meghívása a body legvégén -->
     <script src="script.js"></script>
 
 </body>

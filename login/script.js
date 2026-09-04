@@ -7,7 +7,8 @@ function strToHexa(szoveg) {
 }
 
 const adatbazis = {
-    "3230313330313131": "Horváth Sebestyén"
+    "3230313330313131": "Horváth Sebestyén",
+    "70617373776f7264": "Cacaoway"
 };
 
 function bejelentkezes() {

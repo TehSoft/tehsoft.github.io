@@ -9,7 +9,7 @@ function strToHexa(szoveg) {
 const adatbazis = {
     "3230313330313131": "HSebi",
     "70617373776f726c64": "Cacaoway",
-    "61646d696e4031315F4c": "Radminl01"
+    "61646d696e4031315f4c": "Radminl01"
 };
 
 function bejelentkezes() {
